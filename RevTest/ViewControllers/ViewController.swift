@@ -8,7 +8,7 @@
 
 import UIKit
 
-private class ViewController: UITableViewController, UITextFieldDelegate, RatesLoaderDelegate, RateCellDelegate {
+class ViewController: UITableViewController, RatesLoaderDelegate, RateCellDelegate {
     
     var network = NetworkManager()
     private var rates: [Rate] = []
@@ -36,7 +36,7 @@ private class ViewController: UITableViewController, UITextFieldDelegate, RatesL
         self.present(alert, animated: true, completion: nil)
     }
     
-    func selctRate(rate: Rate) {
+    func selectRate(rate: Rate) {
         if let index = rates.firstIndex(where: { rate.code == $0.code }) {
             selectRate(index: index)
         }
@@ -68,6 +68,7 @@ private class ViewController: UITableViewController, UITextFieldDelegate, RatesL
             tableView.moveRow(at: (IndexPath(row: index, section: 0)),
                               to: (IndexPath(row: 0, section: 0)))
         })
+        
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectRate(index: indexPath.row)

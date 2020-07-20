@@ -15,7 +15,7 @@ class DecimalFormatter {
         formatter.numberStyle = .decimal
         formatter.roundingMode = .floor
         formatter.minimumIntegerDigits = 1
-        formatter.minimumFractionDigits = 2
+        formatter.minimumFractionDigits = 1
         formatter.maximumFractionDigits = 2
         let value = convert(currentValue: currentValue, rate: rate, currentRate: currentRate)
         return formatter.string(from: NSNumber(value: value)) ?? "0"

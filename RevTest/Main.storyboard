@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eXY-72-8Tz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Currencies-->
         <scene sceneID="qrl-ir-t6H">
             <objects>
-                <tableViewController id="OdI-1J-Fqw" sceneMemberID="viewController">
+                <tableViewController id="OdI-1J-Fqw" customClass="ViewController" customModule="RevTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RQR-Ba-MDw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,8 +65,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="info" destination="cbf-nK-Iki" id="MW0-3i-4eW"/>
-                                    <outlet property="info2" destination="hRo-DZ-LXM" id="UZg-YM-vgr"/>
+                                    <outlet property="currencieRate" destination="hRo-DZ-LXM" id="UZg-YM-vgr"/>
+                                    <outlet property="currencies" destination="cbf-nK-Iki" id="MW0-3i-4eW"/>
+                                    <outlet property="flagIcon" destination="4k0-6n-1xF" id="wbd-Ws-aaz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -75,7 +76,7 @@
                             <outlet property="delegate" destination="OdI-1J-Fqw" id="x2t-WW-Rhi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="nXw-m3-prv"/>
+                    <navigationItem key="navigationItem" title="Currencies" id="nXw-m3-prv"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wa5-vY-9EX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

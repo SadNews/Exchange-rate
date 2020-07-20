@@ -8,7 +8,7 @@
 
 import SystemConfiguration
 
-public class CheckInternet{
+class CheckInternet{
     
     static func Connection() -> Bool{
         

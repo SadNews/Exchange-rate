@@ -10,17 +10,19 @@ import Alamofire
 
 protocol RatesLoaderDelegate: class {
     func ratesDidLoad(_ rates: [Rate])
-    func internetConnectionErrorAlert(Message: String)
 }
 
 class NetworkManager {
-    
+
     weak var delegate: RatesLoaderDelegate?
     private let baseURL = "https://hiring.revolut.codes/api/android/latest?base="
     
     func fetchData(_ base: String, value: Double) {
         if !CheckInternet.Connection(){
-            self.delegate?.internetConnectionErrorAlert(Message:"Internet connection error")
+            if let data = UserDefaults.standard.value(forKey:"rate") as? Data {
+                guard let songs2 = try? PropertyListDecoder().decode(Array<Rate>.self, from: data) else { return }
+                self.delegate?.ratesDidLoad(songs2)
+            }
         }
         let baseCode = base
         let baseValue = value
@@ -29,6 +31,7 @@ class NetworkManager {
             if let value = response.value as? [String: Any], var rates = ResultsParser.parseResults(value) {
                 rates.insert(Rate(code: baseCode, value: baseValue), at: 0)
                 self?.delegate?.ratesDidLoad(rates)
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(rates), forKey:"rate")
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self?.fetchData(baseCode, value: baseValue)

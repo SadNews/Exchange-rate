@@ -21,19 +21,12 @@ class ViewController: UITableViewController, RatesLoaderDelegate, RateCellDelega
         network.delegate = self
         
         network.fetchData("EUR", value: currentValue)
-        
     }
     
     func amountChanged(amount: Double, rate: Rate) {
         currentRate = rate
         currentValue = amount
         updateVisibleRows()
-    }
-    
-    func internetConnectionErrorAlert(Message: String){
-        let alert = UIAlertController(title: "Alert", message: Message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
     func selectRate(rate: Rate) {

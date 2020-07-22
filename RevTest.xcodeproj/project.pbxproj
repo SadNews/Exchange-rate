@@ -77,11 +77,8 @@
 		1137659D24C13000001516BA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				113765A124C130A3001516BA /* InternetCheck.swift */,
-				11A9048B249AD9A90037A9E3 /* ToDecimalFormatter.swift */,
-				1137659924C12F77001516BA /* ResultParser.swift */,
-				1137659724C12F25001516BA /* RatesSorter.swift */,
 				11FF14CA247F37D700480A80 /* NetworkManager.swift */,
+				113765A124C130A3001516BA /* InternetCheck.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -101,6 +98,16 @@
 				11FF14D0247F543000480A80 /* TableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		11D3306324C900EB001440A9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1137659924C12F77001516BA /* ResultParser.swift */,
+				1137659724C12F25001516BA /* RatesSorter.swift */,
+				11A9048B249AD9A90037A9E3 /* ToDecimalFormatter.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		11FF14AA247F378800480A80 = {
@@ -124,6 +131,7 @@
 		11FF14B5247F378800480A80 /* RevTest */ = {
 			isa = PBXGroup;
 			children = (
+				11D3306324C900EB001440A9 /* Utils */,
 				11FF14C1247F378900480A80 /* LaunchScreen.storyboard */,
 				11F9EFB924C3B11900E3E0B6 /* Main.storyboard */,
 				1137659E24C13026001516BA /* ViewControllers */,

@@ -9,17 +9,17 @@
 import UIKit
 
 protocol RateCellDelegate: class {
-    func selectRate(rate: Rate)
+    func didSelectRate(rate: Rate)
     func amountChanged(amount: Double, rate: Rate)
 }
 
-class TableViewCell: UITableViewCell, UITextFieldDelegate {
-    var rate: Rate?
-    let network = NetworkManager()
+final class TableViewCell: UITableViewCell, UITextFieldDelegate {
+    private var rate: Rate?
+    private let network = NetworkManager()
     weak var delegate: RateCellDelegate?
-    @IBOutlet weak var currencies: UILabel!
-    @IBOutlet weak var currencieRate: UITextField!
-    @IBOutlet weak var flagIcon: UIImageView!
+    @IBOutlet private weak var currencies: UILabel!
+    @IBOutlet private weak var currencieRate: UITextField!
+    @IBOutlet private weak var flagIcon: UIImageView!
     
     override func awakeFromNib() {
         currencieRate.keyboardType = .decimalPad
@@ -27,6 +27,7 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
     
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        self.delegate?.didSelectRate(rate: rate!)
         let updatedString = textField.text ?? ""
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -47,7 +48,7 @@ class TableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        delegate?.selectRate(rate: rate ?? Rate.init(code: "", value: 0))
+        delegate?.didSelectRate(rate: rate ?? Rate.init(code: "", value: 0))
     }
     
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DecimalFormatter {
+final class DecimalFormatter {
     
     static func toDecimalFormatter(currentValue: Double, rate: Rate, currentRate: Double) -> String {
         let formatter = NumberFormatter()

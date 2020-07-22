@@ -14,8 +14,8 @@ protocol RatesLoaderDelegate: class {
 
 class NetworkManager {
 
-    weak var delegate: RatesLoaderDelegate?
     private let baseURL = "https://hiring.revolut.codes/api/android/latest?base="
+    weak var delegate: RatesLoaderDelegate?
     
     func fetchData(_ base: String, value: Double) {
         if !CheckInternet.Connection(){

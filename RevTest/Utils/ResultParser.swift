@@ -6,7 +6,7 @@
 //  Copyright © 2020 Андрей Ушаков. All rights reserved.
 //
 
-class ResultsParser {
+final class ResultsParser {
     static func parseResults(_ dict: [String: Any]) -> [Rate]? {
         guard let rawRates = dict["rates"] as? [String: Double] else { return nil }
         return rawRates.map { (key: String, value: Double) -> Rate in

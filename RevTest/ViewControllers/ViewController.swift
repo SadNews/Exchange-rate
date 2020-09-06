@@ -82,4 +82,5 @@ final class ViewController: UITableViewController, RatesLoaderDelegate, RateCell
             selectRate(index: index)
         }
     }
+
 }
